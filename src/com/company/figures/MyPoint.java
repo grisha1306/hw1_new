@@ -57,4 +57,29 @@ public class MyPoint {
     public double distance () {
         return Math.sqrt(Math.pow((this.x),2) + Math.pow((this.y),2));
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true; // первый шаг
+
+        if (!(obj instanceof MyPoint)) return false; // второй шаг
+
+        if(obj == null) return false;
+
+        MyPoint myPoint = (MyPoint) obj; // третий шаг
+
+        return this.x == myPoint.x && this.y == myPoint.y; // вывод
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+
+        result = 31*result + x;
+        result = 31*result + y;
+
+        return result;
+    }
+
+
 }

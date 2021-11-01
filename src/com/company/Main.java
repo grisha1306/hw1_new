@@ -34,13 +34,13 @@ public class Main {
 //        System.out.println(employee.raiseSalary(3));
 //        System.out.println(employee.toString());
 
-        Author a1 = new Author("Petr", "Petr@gmail.com", 'm');
-        Author a2 = new Author("Ivan", "Ivan@gmail.com", 'm');
-        Author[] authors = new Author[] {a1, a2};
-        Book book = new Book("War", authors, 50.0, 1);
-        System.out.println(book.getName());
-        System.out.println((book.getAuthorNames()));
-        System.out.println(Arrays.toString(book.getAuthors()));
+//        Author a1 = new Author("Petr", "Petr@gmail.com", 'm');
+//        Author a2 = new Author("Ivan", "Ivan@gmail.com", 'm');
+//        Author[] authors = new Author[] {a1, a2};
+//        Book book = new Book("War", authors, 50.0, 1);
+//        System.out.println(book.getName());
+//        System.out.println((book.getAuthorNames()));
+//        System.out.println(Arrays.toString(book.getAuthors()));
 //        System.out.println(book.toString());
 
 //        MyPoint myPoint = new MyPoint(0,1);

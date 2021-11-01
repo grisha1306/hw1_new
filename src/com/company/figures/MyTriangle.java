@@ -1,5 +1,7 @@
 package com.company.figures;
 
+import java.util.Objects;
+
 public class MyTriangle {
     private static final double EPSILON = 0.00001;
     private MyPoint v1;
@@ -47,5 +49,18 @@ public class MyTriangle {
             }
         else
             return "Triangle is not exist";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MyTriangle that = (MyTriangle) o;
+        return Objects.equals(v1, that.v1) && Objects.equals(v2, that.v2) && Objects.equals(v3, that.v3);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(v1, v2, v3);
     }
 }

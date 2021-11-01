@@ -1,5 +1,7 @@
 package com.company.ball;
 
+import java.util.Objects;
+
 public class Ball {
     private float x;
     private float y;
@@ -72,4 +74,31 @@ public class Ball {
     public String toString() {
         return "Ball[("+x+", "+y+"), speed=("+xDelta+", "+yDelta+")]";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true; // первый шаг
+
+        if (!(obj instanceof Ball)) return false; // второй шаг
+
+        if(obj == null) return false;
+
+        Ball ball = (Ball) obj; // третий шаг
+
+        return this.x == ball.x && this.y == ball.y && this.radius == ball.radius && this.xDelta == ball.xDelta && this.yDelta == ball.yDelta; // вывод
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+
+        result = 31*result + radius;
+        result = 31*result + Float.floatToIntBits(x);
+        result = 31*result + Float.floatToIntBits(y);
+        result = 31*result + Float.floatToIntBits(xDelta);
+        result = 31*result + Float.floatToIntBits(yDelta);
+
+        return result;
+    }
+
 }

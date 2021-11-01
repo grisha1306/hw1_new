@@ -46,4 +46,29 @@ public class Container {
         return "Container[("+ x1 +","+ y1 +") to ("+ x2 +", "+ y2 +")]";
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true; // первый шаг
+
+        if (!(obj instanceof Container)) return false; // второй шаг
+
+        if(obj == null) return false;
+
+        Container container = (Container) obj; // третий шаг
+
+        return this.x1 == container.x1 && this.x2 == container.x2 && this.y1 == container.y1 && this.y2 == container.y2; // вывод
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+
+        result = 31*result + x1;
+        result = 31*result + x2;
+        result = 31*result + y1;
+        result = 31*result + y2;
+
+        return result;
+    }
+
 }

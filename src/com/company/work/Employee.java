@@ -1,5 +1,7 @@
 package com.company.work;
 
+import com.company.figures.Circle;
+
 public class Employee {
     private int id;
     private String firstName ;
@@ -48,6 +50,32 @@ public class Employee {
     @Override
     public String toString() {
         return "Employee[id = " + id + ", name = " + getName() + ", salary = " + salary + "]";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true; // первый шаг
+
+        if (!(obj instanceof Employee)) return false; // второй шаг
+
+        if(obj == null) return false;
+
+        Employee employee = (Employee) obj; // третий шаг
+
+        return this.id == employee.id && this.salary == employee.salary &&
+                            this.firstName.equals(employee.firstName) && this.lastName.equals(employee.lastName); // вывод
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+
+        result = 31*result + id;
+        result = 31*result + firstName.hashCode();
+        result = 31*result + lastName.hashCode();
+        result = 31*result + salary;
+
+        return result;
     }
 
 }

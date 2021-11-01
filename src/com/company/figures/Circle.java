@@ -1,5 +1,7 @@
 package com.company.figures;
 
+import com.company.complex.MyComplex;
+
 public class Circle {
 
     private double radius = 1.0;
@@ -40,6 +42,29 @@ public class Circle {
 
     public double getArea() {
         return Math.PI * Math.pow(radius,2);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true; // первый шаг
+
+        if (!(obj instanceof Circle)) return false; // второй шаг
+
+        if(obj == null) return false;
+
+        Circle circle = (Circle) obj; // третий шаг
+
+        return this.radius == circle.radius && this.color.equals(circle.color); // вывод
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+
+        result = 31*result + (int)(Double.doubleToLongBits(radius) ^ (Double.doubleToLongBits(radius) >>> 32));
+        result = 31*result + color.hashCode();
+
+        return result;
     }
 
 }

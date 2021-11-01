@@ -1,5 +1,7 @@
 package com.company.complex;
 
+import com.company.ball.Container;
+
 public class MyComplex {
     private double real = 0.0;
     private double imag = 0.0;
@@ -116,6 +118,29 @@ public class MyComplex {
 
     public MyComplex conjugate () {
         return new MyComplex(this.real, -this.imag);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true; // первый шаг
+
+        if (!(obj instanceof MyComplex)) return false; // второй шаг
+
+        if(obj == null) return false;
+
+        MyComplex myComplex = (MyComplex) obj; // третий шаг
+
+        return this.real == myComplex.real && this.imag == myComplex.imag; // вывод
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+
+        result = 31*result + (int)(Double.doubleToLongBits(real) ^ (Double.doubleToLongBits(real) >>> 32));
+        result = 31*result + (int)(Double.doubleToLongBits(imag) ^ (Double.doubleToLongBits(imag) >>> 32));
+
+        return result;
     }
 
 }
